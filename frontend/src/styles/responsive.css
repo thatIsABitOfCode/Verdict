@@ -1,0 +1,295 @@
+/* Verdict responsive system
+   Mobile-first baseline is preserved. These rules progressively enhance
+   tablet and laptop layouts and harden narrow-screen behaviour globally. */
+
+:root {
+  --verdict-content-tablet: 760px;
+  --verdict-content-desktop: 1040px;
+  --verdict-reading-width: 820px;
+}
+
+html,
+body,
+#root {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* Prevent long text, filenames and links from breaking the layout */
+p,
+h1,
+h2,
+h3,
+h4,
+span,
+strong,
+a,
+button,
+label,
+li,
+dd,
+dt {
+  overflow-wrap: anywhere;
+}
+
+pre,
+code {
+  max-width: 100%;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+
+table {
+  max-width: 100%;
+}
+
+input,
+textarea,
+select,
+button {
+  min-width: 0;
+}
+
+/* =========================
+   MOBILE
+   320px – 767px
+   ========================= */
+
+@media (max-width: 767px) {
+  input,
+  textarea,
+  select {
+    font-size: max(16px, 1em);
+  }
+
+  .home-shell,
+  .calendar-shell,
+  .case-summary-shell,
+  .evidence-shell,
+  .find-help-shell,
+  .forgot-shell,
+  .guidance-shell,
+  .rights-shell,
+  .rights-topic-shell,
+  .legal-shell,
+  .matter-overview-shell,
+  .my-matters-shell,
+  .notifications-shell,
+  .profile-shell,
+  .settings-shell,
+  .start-matter-shell,
+  .support-shell,
+  .terms-shell,
+  .timeline-shell,
+  .verdict-ai-shell,
+  .auth-shell {
+    max-width: 100%;
+  }
+
+  /* Filters can scroll instead of crushing their labels */
+  .help-filter-row {
+    max-width: 100%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Modals remain usable on small phones */
+  .calendar-modal,
+  .matter-delete-modal {
+    max-width: calc(100vw - 24px);
+    max-height: calc(100dvh - 24px);
+    overflow-y: auto;
+  }
+
+  /* AI panel stays inside the phone screen */
+  .verdict-ai-panel {
+    max-width: calc(100vw - 16px);
+    max-height: calc(100dvh - 16px);
+  }
+}
+
+/* =========================
+   TABLET
+   768px – 1023px
+   ========================= */
+
+@media (min-width: 768px) {
+  .home-shell,
+  .calendar-shell,
+  .evidence-shell,
+  .find-help-shell,
+  .guidance-shell,
+  .matter-overview-shell,
+  .my-matters-shell,
+  .notifications-shell,
+  .start-matter-shell,
+  .timeline-shell {
+    width: min(
+      calc(100% - 48px),
+      var(--verdict-content-tablet)
+    );
+  }
+
+  /* Reading-heavy screens stay narrower */
+  .case-summary-shell,
+  .legal-shell,
+  .verdict-ai-shell {
+    width: min(
+      calc(100% - 48px),
+      var(--verdict-reading-width)
+    );
+  }
+
+  .rights-shell,
+  .rights-topic-shell,
+  .profile-shell,
+  .settings-shell,
+  .support-shell,
+  .terms-shell,
+  .forgot-shell,
+  .auth-shell {
+    width: min(calc(100% - 48px), 680px);
+  }
+
+  .help-type-list,
+  .verified-referral-list,
+  .matters-list,
+  .notification-list {
+    gap: 16px;
+  }
+
+  .support-quick-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .calendar-modal {
+    width: min(
+      calc(100vw - 64px),
+      620px
+    );
+  }
+}
+
+/* =========================
+   LAPTOP / DESKTOP
+   1024px+
+   ========================= */
+
+@media (min-width: 1024px) {
+  .home-shell,
+  .calendar-shell,
+  .evidence-shell,
+  .find-help-shell,
+  .guidance-shell,
+  .matter-overview-shell,
+  .my-matters-shell,
+  .notifications-shell,
+  .start-matter-shell,
+  .timeline-shell {
+    width: min(
+      calc(100% - 80px),
+      var(--verdict-content-desktop)
+    );
+  }
+
+  .case-summary-shell,
+  .legal-shell,
+  .verdict-ai-shell {
+    width: min(
+      calc(100% - 80px),
+      920px
+    );
+  }
+
+  .rights-shell,
+  .rights-topic-shell,
+  .profile-shell,
+  .settings-shell,
+  .support-shell {
+    width: min(
+      calc(100% - 80px),
+      860px
+    );
+  }
+
+  .terms-shell,
+  .forgot-shell,
+  .auth-shell {
+    width: min(
+      calc(100% - 80px),
+      620px
+    );
+  }
+
+  /* Lists use laptop space instead of remaining
+     one very long mobile column */
+  .help-type-list,
+  .verified-referral-list,
+  .matters-list,
+  .notification-list {
+    display: grid;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .verified-referral-list {
+    grid-template-columns:
+      repeat(
+        auto-fit,
+        minmax(min(100%, 360px), 1fr)
+      );
+  }
+
+  .support-quick-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .guidance-facts-grid {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* =========================
+   LARGE LAPTOP / DESKTOP
+   1440px+
+   ========================= */
+
+@media (min-width: 1440px) {
+  .home-shell,
+  .calendar-shell,
+  .evidence-shell,
+  .find-help-shell,
+  .guidance-shell,
+  .matter-overview-shell,
+  .my-matters-shell,
+  .notifications-shell,
+  .start-matter-shell,
+  .timeline-shell {
+    width: min(
+      calc(100% - 112px),
+      1120px
+    );
+  }
+}
+
+/* =========================
+   SHORT LANDSCAPE SCREENS
+   ========================= */
+
+@media (max-height: 600px) and (orientation: landscape) {
+  .calendar-modal-overlay,
+  .matter-delete-overlay {
+    align-items: flex-start;
+    overflow-y: auto;
+    padding-block: 12px;
+  }
+
+  .verdict-ai-panel {
+    max-height: calc(100dvh - 12px);
+  }
+}

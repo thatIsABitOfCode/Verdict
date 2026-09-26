@@ -1,0 +1,638 @@
+.my-matters-page {
+  min-height: 100svh;
+  background: #f6f3ec;
+  color: #0b252c;
+}
+
+.my-matters-shell {
+  width: min(100%, 500px);
+  margin: 0 auto;
+  padding: 18px 18px 48px;
+}
+
+.my-matters-header {
+  min-height: 58px;
+
+  display: grid;
+  grid-template-columns: 42px 1fr 42px;
+  align-items: center;
+}
+
+.my-matters-back,
+.new-matter-small {
+  width: 39px;
+  height: 39px;
+
+  border-radius: 12px;
+
+  background: transparent;
+  color: #29494e;
+
+  cursor: pointer;
+}
+
+.new-matter-small {
+  background: #e6efeb;
+  color: #2c6d68;
+
+  font-size: 1.1rem;
+}
+
+.my-matters-wordmark {
+  text-align: center;
+
+  padding-left: 0.22em;
+
+  font-size: 0.79rem;
+  font-weight: 750;
+  letter-spacing: 0.22em;
+}
+
+.my-matters-title {
+  margin-top: 34px;
+}
+
+.my-matters-eyebrow {
+  display: block;
+
+  color: #53736f;
+
+  font-size: 0.68rem;
+  font-weight: 750;
+
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.my-matters-title h1 {
+  margin-top: 9px;
+  margin-bottom: 11px;
+
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 8vw, 2.6rem);
+  font-weight: 500;
+}
+
+.my-matters-title p {
+  max-width: 380px;
+
+  color: #778587;
+
+  font-size: 0.87rem;
+  line-height: 1.6;
+}
+
+/* FILTERS */
+
+.matters-toolbar {
+  margin-top: 28px;
+}
+
+.matter-filter-group {
+  display: flex;
+  gap: 7px;
+
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.matter-filter-group::-webkit-scrollbar {
+  display: none;
+}
+
+.matter-filter-group button {
+  min-height: 37px;
+
+  padding: 0 13px;
+
+  border-radius: 999px;
+
+  background: #e9ece8;
+  color: #718082;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.matter-filter-group button.active {
+  background: #0b3037;
+  color: #ffffff;
+}
+
+/* MATTER LIST */
+
+.matters-list {
+  display: grid;
+  gap: 12px;
+
+  margin-top: 20px;
+}
+
+.matter-list-card {
+  padding: 17px;
+
+  border: 1px solid #dfe3e0;
+  border-radius: 18px;
+
+  background: rgba(255, 255, 255, 0.63);
+
+  cursor: pointer;
+
+  transition:
+    transform 150ms ease,
+    border-color 150ms ease;
+}
+
+.matter-list-card:hover {
+  transform: translateY(-1px);
+  border-color: #c7d4d0;
+}
+
+.matter-list-top {
+  margin-bottom: 13px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.matter-list-category {
+  color: #557276;
+
+  font-size: 0.65rem;
+  font-weight: 750;
+
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+}
+
+.matter-list-status {
+  padding: 5px 9px;
+
+  border-radius: 999px;
+
+  background: #e6f0ec;
+  color: #47756f;
+
+  font-size: 0.63rem;
+  font-weight: 700;
+}
+
+.matter-list-card h2 {
+  margin-bottom: 7px;
+
+  font-size: 0.95rem;
+}
+
+.matter-list-next {
+  color: #778587;
+
+  font-size: 0.73rem;
+  line-height: 1.5;
+}
+
+.matter-list-footer {
+  margin-top: 16px;
+  padding-top: 13px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px solid #e4e7e4;
+}
+
+.matter-list-footer > span {
+  color: #939c9d;
+
+  font-size: 0.64rem;
+}
+
+.matter-list-footer button {
+  padding: 0;
+
+  background: transparent;
+  color: #276d69;
+
+  cursor: pointer;
+
+  font-size: 0.69rem;
+  font-weight: 750;
+}
+
+/* EMPTY */
+
+.no-matters-state {
+  margin-top: 25px;
+  padding: 38px 20px;
+
+  border-radius: 19px;
+
+  background: #e9eeea;
+
+  text-align: center;
+}
+
+.no-matters-icon {
+  width: 44px;
+  height: 44px;
+
+  margin: 0 auto 12px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 13px;
+
+  background: #d9e7e1;
+  color: #38716b;
+
+  font-size: 1.2rem;
+}
+
+.no-matters-state h2 {
+  margin-bottom: 7px;
+
+  font-size: 0.9rem;
+}
+
+.no-matters-state p {
+  color: #7d8a8c;
+
+  font-size: 0.73rem;
+}
+
+.no-matters-state button {
+  margin-top: 16px;
+
+  background: transparent;
+  color: #246b67;
+
+  cursor: pointer;
+
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+/* NEW MATTER */
+
+.new-matter-button {
+  width: 100%;
+  min-height: 54px;
+
+  margin-top: 28px;
+  padding: 0 17px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-radius: 14px;
+
+  background: #0b3037;
+  color: #ffffff;
+
+  cursor: pointer;
+
+  font-weight: 700;
+}
+
+.new-matter-button span {
+  font-size: 1.1rem;
+}
+
+@media (min-width: 700px) {
+  .my-matters-shell {
+    padding-top: 28px;
+  }
+}
+/* =========================================
+   Matter management actions
+   ========================================= */
+
+.matter-management-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-top: 14px;
+}
+
+.matter-edit-button,
+.matter-delete-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 9px 14px;
+
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.matter-edit-button {
+  background: #eef3f1;
+  border: 1px solid #d5dfdb;
+  color: #263b38;
+}
+
+.matter-edit-button:hover {
+  background: #e2ebe7;
+}
+
+.matter-delete-button {
+  background: transparent;
+  border: 1px solid #e3c9c9;
+  color: #9b3d3d;
+}
+
+.matter-delete-button:hover {
+  background: #fff4f4;
+  border-color: #d9abab;
+}
+
+.matter-edit-button:disabled,
+.matter-delete-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.matter-list-footer {
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 520px) {
+  .matter-management-actions {
+    width: 100%;
+  }
+
+  .matter-edit-button,
+  .matter-delete-button {
+    flex: 1;
+  }
+}
+/* =========================================
+   Saved matter actions
+   ========================================= */
+
+.matter-list-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.matter-list-actions button {
+  min-height: 38px;
+  padding: 9px 14px;
+
+  border-radius: 10px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 650;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.matter-action-edit {
+  background: #eef3f1;
+  border: 1px solid #d5dfdb;
+  color: #263b38;
+}
+
+.matter-action-edit:hover:not(:disabled) {
+  background: #e2ebe7;
+}
+
+.matter-action-delete {
+  background: transparent;
+  border: 1px solid #e5caca;
+  color: #913b3b;
+}
+
+.matter-action-delete:hover:not(:disabled) {
+  background: #fff5f5;
+  border-color: #d8aaaa;
+}
+
+.matter-action-continue {
+  background: #073f43;
+  border: 1px solid #073f43;
+  color: #ffffff;
+}
+
+.matter-action-continue:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.matter-list-actions button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 560px) {
+  .matter-list-footer {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .matter-list-actions {
+    width: 100%;
+    justify-content: stretch;
+  }
+
+  .matter-action-edit,
+  .matter-action-delete {
+    flex: 1;
+  }
+
+  .matter-action-continue {
+    flex: 1.4;
+  }
+}
+/* =========================================
+   Verdict delete matter confirmation modal
+   ========================================= */
+
+.matter-delete-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 24px;
+
+  background: rgba(8, 23, 24, 0.48);
+  backdrop-filter: blur(3px);
+}
+
+.matter-delete-modal {
+  width: min(100%, 430px);
+
+  padding: 28px;
+
+  background: #ffffff;
+  border: 1px solid #dbe3e0;
+  border-radius: 20px;
+  box-shadow: 0 24px 70px rgba(8, 31, 32, 0.2);
+}
+
+.matter-delete-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+  margin-bottom: 18px;
+
+  border-radius: 50%;
+
+  background: #fff1f1;
+  color: #9b3434;
+
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.matter-delete-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.matter-delete-eyebrow {
+  color: #6c7d79;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.matter-delete-copy h2 {
+  margin: 0;
+
+  color: #173330;
+  font-size: 24px;
+  line-height: 1.2;
+}
+
+.matter-delete-copy p {
+  margin: 0;
+
+  color: #596d69;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.matter-delete-copy strong {
+  margin-top: 2px;
+
+  color: #7f3434;
+  font-size: 13px;
+}
+
+.matter-delete-modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+
+  margin-top: 24px;
+}
+
+.matter-delete-modal-actions button {
+  min-height: 42px;
+  padding: 10px 16px;
+
+  border-radius: 11px;
+
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    opacity 0.18s ease,
+    transform 0.18s ease;
+}
+
+.matter-delete-cancel {
+  background: #f2f5f4;
+  border: 1px solid #dbe3e0;
+  color: #29413d;
+}
+
+.matter-delete-cancel:hover:not(:disabled) {
+  background: #e7edeb;
+}
+
+.matter-delete-confirm {
+  background: #8f3434;
+  border: 1px solid #8f3434;
+  color: #ffffff;
+}
+
+.matter-delete-confirm:hover:not(:disabled) {
+  background: #7c2d2d;
+  border-color: #7c2d2d;
+  transform: translateY(-1px);
+}
+
+.matter-delete-modal-actions button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+  transform: none;
+}
+
+@media (max-width: 520px) {
+  .matter-delete-backdrop {
+    align-items: flex-end;
+    padding: 14px;
+  }
+
+  .matter-delete-modal {
+    padding: 22px;
+    border-radius: 18px;
+  }
+
+  .matter-delete-copy h2 {
+    font-size: 21px;
+  }
+
+  .matter-delete-modal-actions {
+    flex-direction: column-reverse;
+  }
+
+  .matter-delete-modal-actions button {
+    width: 100%;
+  }
+}

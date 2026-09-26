@@ -1,0 +1,144 @@
+.terms-page {
+  min-height: 100svh;
+  background: #f6f3ec;
+  color: #0b252c;
+  padding: 28px 18px 38px;
+}
+
+.terms-shell {
+  width: min(100%, 470px);
+  margin: 0 auto;
+}
+
+.terms-brand {
+  display: inline-block;
+  margin-bottom: 50px;
+  font-size: 0.84rem;
+  font-weight: 700;
+  letter-spacing: 0.25em;
+}
+
+.terms-header h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 7vw, 2.55rem);
+  line-height: 1.08;
+  font-weight: 500;
+  margin-bottom: 15px;
+}
+
+.terms-intro {
+  color: #68797b;
+  line-height: 1.65;
+  font-size: 0.93rem;
+  margin-bottom: 28px;
+}
+
+.terms-summary {
+  display: grid;
+  gap: 12px;
+}
+
+.terms-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 13px;
+  align-items: flex-start;
+
+  padding: 16px;
+  border: 1px solid #e0e4e1;
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.62);
+}
+
+.terms-icon {
+  width: 39px;
+  height: 39px;
+  border-radius: 13px;
+  display: grid;
+  place-items: center;
+
+  background: #e6f2ef;
+  color: #176d69;
+  font-weight: 700;
+}
+
+.terms-card h2 {
+  font-size: 0.9rem;
+  margin-bottom: 5px;
+}
+
+.terms-card p {
+  color: #718083;
+  font-size: 0.79rem;
+  line-height: 1.5;
+}
+
+.terms-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin: 22px 0;
+}
+
+.terms-links button {
+  padding: 0;
+  background: transparent;
+  color: #176b68;
+  cursor: pointer;
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.terms-check {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: flex-start;
+
+  padding: 17px;
+  border-radius: 15px;
+  background: #eef0ec;
+
+  color: #43585c;
+  font-size: 0.8rem;
+  line-height: 1.5;
+}
+
+.terms-check input {
+  width: 18px;
+  height: 18px;
+  margin-top: 2px;
+  accent-color: #0c5556;
+}
+
+.accept-button {
+  width: 100%;
+  min-height: 57px;
+  margin-top: 19px;
+  padding: 0 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  border-radius: 15px;
+  background: #0a2c33;
+  color: white;
+  font-weight: 650;
+  cursor: pointer;
+}
+
+.accept-button span {
+  font-size: 1.25rem;
+}
+
+.accept-button:disabled {
+  background: #aeb8b7;
+  cursor: not-allowed;
+}
+
+@media (min-width: 768px) {
+  .terms-page {
+    padding-top: 50px;
+  }
+}

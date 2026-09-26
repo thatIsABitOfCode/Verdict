@@ -1,0 +1,503 @@
+.timeline-page {
+  min-height: 100svh;
+  background: #f6f3ec;
+  color: #0b252c;
+}
+
+.timeline-shell {
+  width: min(100%, 500px);
+  margin: 0 auto;
+  padding: 18px 18px 48px;
+}
+
+/* HEADER */
+
+.timeline-header {
+  min-height: 58px;
+  display: grid;
+  grid-template-columns: 42px minmax(0, 1fr) 42px;
+  align-items: center;
+}
+
+.timeline-back,
+.timeline-more {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: transparent;
+  color: #29494e;
+}
+
+.timeline-wordmark {
+  min-width: 0;
+  text-align: center;
+  padding-left: 0.22em;
+  font-size: 0.79rem;
+  font-weight: 750;
+  letter-spacing: 0.22em;
+}
+
+/* TITLE */
+
+.timeline-title-section {
+  margin-top: 34px;
+}
+
+.timeline-eyebrow,
+.section-label {
+  display: block;
+  color: #53736f;
+  font-size: 0.68rem;
+  font-weight: 750;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.timeline-title-section h1 {
+  margin-top: 9px;
+  margin-bottom: 11px;
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(2rem, 8vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.1;
+  overflow-wrap: anywhere;
+}
+
+.timeline-title-section > p {
+  color: #778587;
+  font-size: 0.87rem;
+  line-height: 1.6;
+}
+
+/* TABS */
+
+.timeline-tabs {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-bottom: 1px solid #dde2df;
+}
+
+.timeline-tabs button {
+  position: relative;
+  min-width: 0;
+  min-height: 46px;
+  padding: 13px 4px;
+  background: transparent;
+  color: #879294;
+  font-size: 0.77rem;
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.timeline-tabs button.active {
+  color: #173d42;
+}
+
+.timeline-tabs button.active::after {
+  content: "";
+  position: absolute;
+  left: 20%;
+  right: 20%;
+  bottom: -1px;
+  height: 2px;
+  border-radius: 999px;
+  background: #2e716d;
+}
+
+/* ACTIONS */
+
+.timeline-actions {
+  margin-top: 33px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 15px;
+}
+
+.timeline-actions > div {
+  min-width: 0;
+}
+
+.timeline-actions h2 {
+  margin-top: 6px;
+  font-size: 0.95rem;
+  overflow-wrap: anywhere;
+}
+
+.add-event-button {
+  flex-shrink: 0;
+  min-height: 42px;
+  padding: 0 13px;
+  border-radius: 11px;
+  background: #e5efeb;
+  color: #276a66;
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+/* FORM */
+
+.timeline-form {
+  margin-top: 16px;
+  padding: 17px;
+  display: grid;
+  gap: 15px;
+  border: 1px solid #dce1de;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.65);
+}
+
+.timeline-form-heading span {
+  display: block;
+  font-size: 0.83rem;
+  font-weight: 750;
+}
+
+.timeline-form-heading p {
+  margin-top: 4px;
+  color: #839092;
+  font-size: 0.7rem;
+  line-height: 1.5;
+}
+
+.timeline-form label {
+  min-width: 0;
+  display: grid;
+  gap: 7px;
+  color: #50696c;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.timeline-form label small {
+  color: #919b9c;
+  font-weight: 500;
+}
+
+.timeline-form input,
+.timeline-form select,
+.timeline-form textarea {
+  width: 100%;
+  min-width: 0;
+  border: 1px solid #d9dfdc;
+  border-radius: 13px;
+  background: #faf9f5;
+  color: #27454a;
+}
+
+.timeline-form input,
+.timeline-form select {
+  min-height: 46px;
+  padding: 0 11px;
+}
+
+.timeline-form textarea {
+  min-height: 90px;
+  padding: 11px;
+  line-height: 1.5;
+}
+
+.timeline-form input:focus-visible,
+.timeline-form select:focus-visible,
+.timeline-form textarea:focus-visible {
+  border-color: #5a8b85;
+  outline: none;
+  box-shadow:
+    0 0 0 4px
+    rgba(58, 123, 116, 0.07);
+}
+
+.save-event-button {
+  min-height: 49px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-radius: 13px;
+  background: #0b3037;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+/* EMPTY */
+
+.timeline-empty {
+  margin-top: 23px;
+  padding: 32px 20px;
+  border-radius: 18px;
+  background: #e9eeea;
+  text-align: center;
+}
+
+.timeline-empty-mark {
+  width: 42px;
+  height: 42px;
+  margin: 0 auto 12px;
+  display: grid;
+  place-items: center;
+  border-radius: 13px;
+  background: #d9e7e1;
+  color: #39726d;
+  font-size: 1.15rem;
+}
+
+.timeline-empty h3 {
+  margin-bottom: 7px;
+  font-size: 0.85rem;
+}
+
+.timeline-empty p {
+  max-width: 330px;
+  margin: 0 auto;
+  color: #7d8a8c;
+  font-size: 0.72rem;
+  line-height: 1.55;
+}
+
+.timeline-empty button {
+  min-height: 40px;
+  margin-top: 8px;
+  padding: 0 4px;
+  background: transparent;
+  color: #246a66;
+  font-size: 0.72rem;
+  font-weight: 750;
+}
+
+/* TIMELINE */
+
+.timeline-list {
+  margin-top: 25px;
+}
+
+.timeline-item {
+  min-width: 0;
+  display: grid;
+  grid-template-columns: 27px minmax(0, 1fr);
+  gap: 10px;
+}
+
+.timeline-rail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.timeline-dot {
+  position: relative;
+  z-index: 2;
+  width: 11px;
+  height: 11px;
+  margin-top: 20px;
+  border: 3px solid #f6f3ec;
+  border-radius: 50%;
+  background: #3e7771;
+  box-shadow: 0 0 0 1px #89aaa4;
+}
+
+.timeline-line {
+  position: absolute;
+  top: 31px;
+  bottom: -20px;
+  width: 1px;
+  background: #cbd5d1;
+}
+
+.timeline-content {
+  min-width: 0;
+  margin-bottom: 13px;
+  padding: 15px;
+  border: 1px solid #dde2df;
+  border-radius: 17px;
+  background: rgba(255, 255, 255, 0.61);
+}
+
+.timeline-item-top {
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.timeline-item-top > div {
+  min-width: 0;
+}
+
+.timeline-date {
+  display: block;
+  color: #426b6c;
+  font-size: 0.7rem;
+  font-weight: 750;
+  overflow-wrap: anywhere;
+}
+
+.timeline-type {
+  display: inline-block;
+  max-width: 100%;
+  margin-top: 5px;
+  padding: 4px 7px;
+  border-radius: 999px;
+  background: #e7efeb;
+  color: #54736f;
+  font-size: 0.59rem;
+  font-weight: 700;
+  overflow-wrap: anywhere;
+}
+
+.delete-event-button {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 9px;
+  background: #f0efeb;
+  color: #8a6967;
+  font-size: 0.95rem;
+}
+
+.timeline-content h3 {
+  font-size: 0.83rem;
+  overflow-wrap: anywhere;
+}
+
+.timeline-content > p {
+  margin-top: 6px;
+  color: #748285;
+  font-size: 0.71rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+/* TIP */
+
+.timeline-tip {
+  margin-top: 25px;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 31px minmax(0, 1fr);
+  gap: 11px;
+  border-radius: 16px;
+  background: #e7efeb;
+}
+
+.timeline-tip > span {
+  width: 29px;
+  height: 29px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #d3e5df;
+  color: #3a706b;
+  font-family: Georgia, serif;
+  font-size: 0.76rem;
+  font-weight: 750;
+}
+
+.timeline-tip > div {
+  min-width: 0;
+}
+
+.timeline-tip h3 {
+  margin-bottom: 5px;
+  font-size: 0.78rem;
+}
+
+.timeline-tip p {
+  color: #6f8082;
+  font-size: 0.7rem;
+  line-height: 1.55;
+  overflow-wrap: anywhere;
+}
+
+/* DONE */
+
+.timeline-bottom-action {
+  margin-top: 31px;
+}
+
+.timeline-bottom-action button {
+  width: 100%;
+  min-height: 54px;
+  padding: 0 17px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  border-radius: 14px;
+  background: #0b3037;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.timeline-bottom-action button span {
+  flex-shrink: 0;
+  font-size: 1.15rem;
+}
+
+/* SMALL PHONES */
+
+@media (max-width: 380px) {
+  .timeline-shell {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+
+  .timeline-title-section {
+    margin-top: 26px;
+  }
+
+  .timeline-tabs button {
+    font-size: 0.72rem;
+  }
+
+  .timeline-actions {
+    align-items: flex-start;
+  }
+
+  .timeline-form {
+    padding: 15px;
+  }
+
+  .timeline-content {
+    padding: 13px;
+  }
+
+  .timeline-tip {
+    padding: 13px;
+  }
+}
+
+/* TABLET */
+
+@media (min-width: 700px) {
+  .timeline-shell {
+    width: min(100% - 48px, 600px);
+    padding-top: 28px;
+    padding-bottom: 60px;
+  }
+
+  .timeline-title-section {
+    margin-top: 42px;
+  }
+
+  .timeline-form,
+  .timeline-content {
+    box-shadow: 0 14px 35px rgba(11, 37, 44, 0.025);
+  }
+}
+
+/* DESKTOP */
+
+@media (min-width: 1000px) {
+  .timeline-shell {
+    width: min(100% - 64px, 680px);
+    padding-bottom: 72px;
+  }
+
+  .timeline-actions {
+    margin-top: 38px;
+  }
+}

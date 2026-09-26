@@ -357,7 +357,7 @@ function MatterOverview() {
 
         const response =
           await fetch(
-            "http://localhost:3001/api/journey/sync",
+            `${import.meta.env.VITE_API_URL || "http://localhost:3001"}/api/journey/sync`,
             {
               method: "POST",
 
@@ -1096,7 +1096,7 @@ function MatterOverview() {
 
       const response =
         await fetch(
-          `http://localhost:3001/api/journey/actions/${encodeURIComponent(
+          `${import.meta.env.VITE_API_URL || "http://localhost:3001"}/api/journey/actions/${encodeURIComponent(
             nextAction.id
           )}`,
           {

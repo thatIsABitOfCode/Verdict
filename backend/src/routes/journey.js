@@ -580,7 +580,7 @@ router.post(
         try {
           const legalResponse =
             await fetch(
-              'http://localhost:3001/api/legal/search',
+              `http://127.0.0.1:${process.env.PORT || 3001}/api/legal/search`,
               {
                 method: 'POST',
 

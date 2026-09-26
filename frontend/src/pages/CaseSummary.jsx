@@ -255,7 +255,7 @@ function CaseSummary() {
 
             const response =
               await fetch(
-                "http://localhost:3001/api/legal/search",
+                `${import.meta.env.VITE_API_URL || "http://localhost:3001"}/api/legal/search`,
                 {
                   method: "POST",
                   headers: {

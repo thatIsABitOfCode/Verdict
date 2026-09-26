@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { supabase } from "../lib/supabaseClient";
 import "../styles/support.css";
 
@@ -31,14 +31,16 @@ const FAQ = [
 
 function Support() {
   const navigate = useNavigate();
-  const [tab, setTab] = useState("home");
+  const location = useLocation();
+  const feedbackMode = location.state?.feedback === true;
+  const [tab, setTab] = useState(feedbackMode ? "tickets" : "home");
   const [openFaq, setOpenFaq] = useState(null);
   const [user, setUser] = useState(null);
   const [tickets, setTickets] = useState([]);
   const [selected, setSelected] = useState(null);
   const [messages, setMessages] = useState([]);
   const [subject, setSubject] = useState("");
-  const [category, setCategory] = useState("technical");
+  const [category, setCategory] = useState(feedbackMode ? "feedback" : "technical");
   const [description, setDescription] = useState("");
   const [reply, setReply] = useState("");
   const [notice, setNotice] = useState("");
@@ -81,7 +83,9 @@ function Support() {
     if (error) return setNotice(error.message);
     setSubject("");
     setDescription("");
-    setNotice(`Ticket ${data.ticket_number} submitted.`);
+    setNotice(category === "feedback"
+      ? `Thanks for helping improve Verdict. Feedback ${data.ticket_number} was sent.`
+      : `Ticket ${data.ticket_number} submitted.`);
     setSelected(data);
     await loadTickets(user);
   }
@@ -104,7 +108,7 @@ function Support() {
   return (
     <main className="support-page"><section className="support-shell">
       <header className="support-header">
-        <button type="button" className="support-back" onClick={() => navigate("/settings")} aria-label="Go back">←</button>
+        <button type="button" className="support-back" onClick={() => navigate("/home")} aria-label="Go back">←</button>
         <span className="support-wordmark">VERDICT</span><div className="support-header-space" />
       </header>
 
@@ -133,7 +137,7 @@ function Support() {
 
       {tab === "faq" && <section className="support-section"><div className="support-section-heading"><span className="section-label">FAQ</span><h2>Frequently asked questions</h2></div><div className="support-faq-list">{FAQ.map(([question,answer], index) => { const id=`full-${index}`; const isOpen=openFaq===id; return <article className={`support-faq ${isOpen?'open':''}`} key={question}><button type="button" className="support-faq-question" onClick={() => setOpenFaq(isOpen?null:id)} aria-expanded={isOpen}><span>{question}</span><span>{isOpen?'−':'+'}</span></button>{isOpen&&<div className="support-faq-answer"><p>{answer}</p></div>}</article>})}</div></section>}
 
-      {tab === "tickets" && <section className="support-section"><div className="support-section-heading"><span className="section-label">Verdict technical support</span><h2>Support tickets</h2><p>Report a technical, account or navigation problem. Technical support does not provide legal advice.</p></div>
+      {tab === "tickets" && <section className="support-section"><div className="support-section-heading"><span className="section-label">Verdict support</span><h2>{category === "feedback" ? "Share feedback" : "Support tickets"}</h2><p>{category === "feedback" ? "Tell us what worked, what felt confusing, or what you would change. Please leave out personal legal details." : "Report a technical, account or navigation problem. Technical support does not provide legal advice."}</p></div>
         <form className="support-ticket-form" onSubmit={submitTicket}><div className="support-form-group"><label>Category</label><select value={category} onChange={e=>setCategory(e.target.value)}><option value="technical">Technical issue</option><option value="account">Account help</option><option value="navigation">Navigation / app help</option><option value="feedback">Feedback</option></select></div><div className="support-form-group"><label>Subject</label><input maxLength="140" value={subject} onChange={e=>setSubject(e.target.value)} placeholder="Briefly describe the issue" /></div><div className="support-form-group"><label>What happened?</label><textarea rows="6" maxLength="4000" value={description} onChange={e=>setDescription(e.target.value)} placeholder="Tell us what you were trying to do and what happened." /></div><p className="support-security-note">Do not include passwords, access tokens or other account secrets.</p><button className="support-submit-button" disabled={!subject.trim()||!description.trim()}>Submit ticket</button>{notice&&<p className="support-message">{notice}</p>}</form>
         <div className="support-ticket-list">{tickets.map(ticket=><button type="button" className={`support-ticket-card ${selected?.id===ticket.id?'active':''}`} key={ticket.id} onClick={()=>setSelected(ticket)}><div className="support-ticket-top"><div><span className="support-ticket-number">{ticket.ticket_number}</span><h3>{ticket.subject}</h3></div><span className={`support-status support-status-${ticket.status}`}>{ticket.status.replaceAll('_',' ')}</span></div></button>)}</div>
         {selected&&<article className="support-thread"><div className="support-thread-header"><span className="support-ticket-number">{selected.ticket_number}</span><h3>{selected.subject}</h3><p>{selected.description}</p></div><div className="support-messages">{messages.map(message=><div className={`support-message-bubble ${message.sender_type}`} key={message.id}><span className="support-message-sender">{message.sender_type==='admin'?'Verdict Support':'You'}</span><div className="support-message-text">{message.message}</div></div>)}</div><form className="support-reply-form" onSubmit={sendReply}><textarea rows="4" value={reply} onChange={e=>setReply(e.target.value)} placeholder="Reply to Verdict Support"/><div className="support-reply-actions"><button className="support-submit-button" disabled={!reply.trim()}>Send reply</button></div></form></article>}

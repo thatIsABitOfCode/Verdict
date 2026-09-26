@@ -439,7 +439,7 @@ function Settings() {
             className="settings-back"
             onClick={() =>
               navigate(
-                "/profile"
+                "/home"
               )
             }
             aria-label="Go back"
@@ -874,6 +874,18 @@ function Settings() {
           </span>
 
           <div className="settings-list">
+            <button
+              type="button"
+              className="settings-row"
+              onClick={() => navigate("/support", { state: { feedback: true } })}
+            >
+              <div>
+                <span>Feedback</span>
+                <strong>Tell us what works and what we could improve</strong>
+              </div>
+              <span>→</span>
+            </button>
+
             <button
               type="button"
               className="settings-row"

@@ -3,6 +3,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import ProtectedRoute from "./components/ProtectedRoute";
 import AdminRoute from "./components/AdminRoute";
 import AdminLayout from "./components/AdminLayout";
+import VerdictAIAssistant from "./components/VerdictAIAssistant";
 
 import { VerdictAIProvider } from "./context/VerdictAIContext";
 
@@ -201,6 +202,7 @@ function App() {
 
         <Route path="*" element={<Navigate to="/home" replace />} />
       </Routes>
+      <VerdictAIAssistant />
     </VerdictAIProvider>
   );
 }

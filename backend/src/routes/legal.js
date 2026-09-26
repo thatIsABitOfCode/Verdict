@@ -274,6 +274,28 @@ router.post('/search', async (req, res) => {
       });
     }
 
+    const supabase = createSupabaseClient(accessToken);
+
+const {
+  data: userData,
+  error: userError,
+} = await supabase.auth.getUser(accessToken);
+
+if (userError || !userData?.user) {
+  return res.status(401).json({
+    error: 'Invalid or expired session.',
+  });
+}
+
+if (
+  typeof req.body?.question === 'string' &&
+  req.body.question.length > 12000
+) {
+  return res.status(400).json({
+    error: 'The question is too long.',
+  });
+}
+
     /*
      * -----------------------------------------------------
      * QUESTION + ATTACHMENT
@@ -408,32 +430,6 @@ router.post('/search', async (req, res) => {
       return res.status(400).json({
         error:
           'The combined question and attachment content is too long.',
-      });
-    }
-
-    /*
-     * -----------------------------------------------------
-     * VERIFY USER
-     * -----------------------------------------------------
-     */
-
-    const supabase =
-      createSupabaseClient(accessToken);
-
-    const {
-      data: userData,
-      error: userError,
-    } = await supabase.auth.getUser(
-      accessToken
-    );
-
-    if (
-      userError ||
-      !userData?.user
-    ) {
-      return res.status(401).json({
-        error:
-          'Invalid or expired session.',
       });
     }
 

@@ -129,12 +129,38 @@ async function getOwnedEvidence({
     .maybeSingle();
 
   if (error) {
-    throw new Error(
-      `Could not retrieve evidence: ${error.message}`
-    );
-  }
+  throw new Error(
+    `Could not retrieve evidence: ${error.message}`
+  );
+}
 
-  return data;
+if (!data) return null;
+
+// The storage client has privileged access, so check the
+// parent matter and file path before downloading the file.
+const {
+  data: matter,
+  error: matterError,
+} = await supabase
+  .from("matters")
+  .select("id")
+  .eq("id", data.matter_id)
+  .eq("user_id", userId)
+  .maybeSingle();
+
+if (matterError) throw matterError;
+
+if (
+  !matter ||
+  typeof data.storage_path !== "string" ||
+  !data.storage_path.startsWith(
+    `${userId}/${data.matter_id}/`
+  )
+) {
+  return null;
+}
+
+return data;
 }
 
 /*

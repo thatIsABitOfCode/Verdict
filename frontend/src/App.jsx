@@ -29,6 +29,10 @@ import Settings from "./pages/Settings";
 import Support from "./pages/Support";
 import Notifications from "./pages/Notifications";
 import VerdictAI from "./pages/VerdictAI";
+import Guidance from "./pages/Guidance";
+import CaseSummary from "./pages/CaseSummary";
+import RightsTopic from "./pages/RightsTopic";
+import LegalIssue from "./pages/LegalIssue";
 
 import AdminDashboard from "./pages/AdminDashboard";
 import AdminUsers from "./pages/AdminUsers";
@@ -77,6 +81,13 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route path="/matters/new/overview" element={<ProtectedRoute><MatterOverview /></ProtectedRoute>} />
+<Route path="/matters/new/evidence" element={<ProtectedRoute><Evidence /></ProtectedRoute>} />
+<Route path="/matters/new/timeline" element={<ProtectedRoute><Timeline /></ProtectedRoute>} />
+<Route path="/matters/new/guidance" element={<ProtectedRoute><Guidance /></ProtectedRoute>} />
+<Route path="/matters/:matterId/edit" element={<ProtectedRoute><StartMatter /></ProtectedRoute>} />
+<Route path="/matters/:matterId/summary" element={<ProtectedRoute><CaseSummary /></ProtectedRoute>} />
 
         <Route
           path="/matters/:matterId"
@@ -131,6 +142,10 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/help" element={<ProtectedRoute><FindHelp /></ProtectedRoute>} />
+<Route path="/rights" element={<ProtectedRoute><KnowYourRights /></ProtectedRoute>} />
+<Route path="/rights/:topicId" element={<ProtectedRoute><RightsTopic /></ProtectedRoute>} />
+<Route path="/rights/:domainSlug/:issueSlug" element={<ProtectedRoute><LegalIssue /></ProtectedRoute>} />
 
         <Route
           path="/profile"

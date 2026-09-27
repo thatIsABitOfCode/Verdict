@@ -288,7 +288,7 @@ function StartMatter() {
       saveMatter(savedMatter);
 
       navigate(
-        "/matters/new/overview",
+        `/matters/${encodeURIComponent(savedMatter.id)}`,
         {
           state: {
             matter:

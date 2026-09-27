@@ -469,7 +469,7 @@ function Home() {
     );
 
     navigate(
-      "/matters/new/overview",
+      `/matters/${encodeURIComponent(latestMatter.id)}`,
       {
         state: {
           matter:

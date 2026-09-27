@@ -5,6 +5,7 @@ import {
 import {
   useLocation,
   useNavigate,
+  useParams,
 } from "react-router-dom";
 
 import {
@@ -57,20 +58,25 @@ function MatterOverview() {
 
   const location =
     useLocation();
+  const { matterId: routeMatterId } = useParams();
 
   const {
     matter: savedMatter,
     setMatter,
   } = useMatter();
 
-  const routeMatter =
-    location.state?.matter?.id
+    const routeMatter =
+    location.state?.matter?.id &&
+    (!routeMatterId ||
+      String(location.state.matter.id) === String(routeMatterId))
       ? location.state.matter
       : null;
 
   const matter =
     routeMatter ||
-    savedMatter;
+    (routeMatterId && String(savedMatter?.id) !== String(routeMatterId)
+      ? { id: routeMatterId }
+      : savedMatter);
 
   const [
     loading,
@@ -285,8 +291,10 @@ function MatterOverview() {
         setMatter(
           (currentMatter) =>
             mapDatabaseMatter(
-              matterResult.data,
-              currentMatter
+                            matterResult.data,
+              String(currentMatter?.id) === String(matterResult.data.id)
+                ? currentMatter
+                : {}
             )
         );
 

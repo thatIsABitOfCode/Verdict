@@ -369,7 +369,7 @@ function MyMatters() {
     );
 
     navigate(
-      "/matters/new/overview",
+     `/matters/${encodeURIComponent(databaseMatter.id)}`,
       {
         state: {
           matter:
